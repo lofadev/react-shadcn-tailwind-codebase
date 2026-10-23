@@ -26,5 +26,5 @@ package-lock.json
 *.sln
 *.sw?
 .env
-.gitnexus
 .claude
+graphify-out
