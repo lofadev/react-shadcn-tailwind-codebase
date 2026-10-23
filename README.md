@@ -6,16 +6,16 @@
 
 ## Features
 
-- **React 19 + Vite**: Uses the latest version of React with Vite for faster development, build, and hot reload.
+- **React 19 + Vite 8**: Uses the latest version of React with Vite for faster development, build, and hot reload.
 - **Tailwind CSS**: Pre-configured with Tailwind CSS 4.x, allowing you to quickly and flexibly style your application.
 - **ShadCN**: Includes some configurations and components inspired by [shadcn/ui](https://ui.shadcn.com/).
-- **ESLint + Prettier**: Comes with ESLint and Prettier for standardized code style and to avoid syntax errors.
-- **Husky + lint-staged**: Automatically runs linting and formatting before committing, ensuring a clean codebase.
+- **Vite+**: One toolchain for linting (Oxlint), formatting (Oxfmt) and type checking (TypeScript 7), with a type-aware lint and import and Tailwind class sorting.
+- **Pre-commit hook**: Vite+ runs lint, format and a whole-project type check on commit, so a type error anywhere blocks the commit.
 - **axios**: A popular library for making API calls.
 - **react-hook-form**: Efficient and easy form management.
 - **zod**: Safe data parsing and validation.
 - **zustand**: Lightweight, straightforward global state management.
-- **React Router**: Routing for your application (version 7.x).
+- **React Router**: Routing for your application (version 8.x).
 - **Sonner**: A lightweight toast/notification library.
 
 ---
@@ -23,13 +23,13 @@
 ## Technologies Used
 
 - [React](https://react.dev/) 19
-- [TypeScript](https://www.typescriptlang.org/) 5.x
-- [Vite](https://vitejs.dev/) 6.x
+- [TypeScript](https://www.typescriptlang.org/) 7.x
+- [Vite](https://vite.dev/) 8.x, through [Vite+](https://viteplus.dev/)
 - [Tailwind CSS](https://tailwindcss.com/) 4.x
-- [ESLint](https://eslint.org/) 9.x
-- [Prettier](https://prettier.io/) 3.x
-- [Husky](https://typicode.github.io/husky/#/) 9.x
-- [lint-staged](https://github.com/okonet/lint-staged) 13.x
+- [React Router](https://reactrouter.com/) 8.x
+- [zod](https://zod.dev/) 4.x
+- [Node.js](https://nodejs.org/) 24
+- [pnpm](https://pnpm.io/) 12
 
 ---
 
@@ -39,7 +39,7 @@ This document describes the structure of the project directory and the purpose o
 
 | Directory/File                  | Description                                        |
 | ------------------------------- | -------------------------------------------------- |
-| `.husky/`                       | Husky configuration (pre-commit hook)              |
+| `.vite-hooks/`                  | Vite+ git hooks (pre-commit)                       |
 | `.vscode/`                      | VSCode configuration (if any)                      |
 | `node_modules/`                 | Directory for installed node packages              |
 | `public/`                       | Contains static files (favicon, manifest, ...)     |
@@ -60,16 +60,13 @@ This document describes the structure of the project directory and the purpose o
 | `.editorconfig`                 | Code formatting rules for multiple editors         |
 | `.env`                          | Main environment variables (not committed to repo) |
 | `.env.example`                  | Example .env file                                  |
-| `.npmrc`                        | npm configuration                                  |
 | `.nvmrc`                        | Specifies NodeJS version for the project           |
-| `.prettierrc`                   | Prettier configuration                             |
-| `eslint.config.js`              | ESLint configuration                               |
 | `index.html`                    | Root HTML file for Vite                            |
 | `package.json`                  | Project information and configuration              |
 | `README.md`                     | Documentation and project description              |
 | `tsconfig.json`                 | TypeScript configuration                           |
-| `vite.config.ts`                | Vite configuration                                 |
-| `yarn.lock / package-lock.json` | Lock file for dependencies                         |
+| `pnpm-lock.yaml`                | Lock file for dependencies                         |
+| `vite.config.ts`                | Vite+ configuration (build, lint, format, staged)  |
 
 ## Clone repo:
 
@@ -80,16 +77,14 @@ git clone https://github.com/lofadev/react-shadcn-tailwind-boilerplate.git
 ## Node version:
 
 ```json
->= 22.x
+>= 24.11.0 < 25
 ```
 
 ## Install dependencies:
 
 ```bash
 cd react-shadcn-tailwind-boilerplate
-npm install
-# or
-yarn install
+pnpm install
 ```
 
 ## Create a .env file (if necessary) based on .env.example:
@@ -101,23 +96,29 @@ cp .env.example .env
 ## Start the development server:
 
 ```bash
-npm run dev
-# or
-yarn dev
+pnpm dev
 ```
 
 ## Build the project for production:
 
 ```bash
-npm run build
-# or
-yarn build
+pnpm build
 ```
 
 ## Preview the production build:
 
 ```bash
-npm run start
-# or
-yarn start
+pnpm start
 ```
+
+## Scripts:
+
+| Script           | Description                                                     |
+| ---------------- | --------------------------------------------------------------- |
+| `pnpm dev`       | Start the development server                                    |
+| `pnpm build`     | Type check, then build for production                           |
+| `pnpm start`     | Preview the production build                                    |
+| `pnpm lint`      | Lint with Oxlint (type-aware)                                   |
+| `pnpm lint:fix`  | Lint and auto-fix, including removing unused imports            |
+| `pnpm format`    | Format with Oxfmt                                               |
+| `pnpm check`     | Format check, lint and type check in one run                    |
