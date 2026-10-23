@@ -40,7 +40,16 @@ export default defineConfig({
     ignorePatterns: ['dist/**', 'node_modules/**', 'public/**', 'build/**', 'src/assets/**', '**/*.md'],
     rules: {
       'no-console': 'error',
-      'no-unused-vars': ['warn', { vars: 'all', varsIgnorePattern: '^_', args: 'after-used', argsIgnorePattern: '^_' }],
+      'no-unused-vars': [
+        'warn',
+        {
+          vars: 'all',
+          varsIgnorePattern: '^_',
+          args: 'after-used',
+          argsIgnorePattern: '^_',
+          fix: { imports: 'safe-fix', variables: 'suggestion' },
+        },
+      ],
       'typescript/no-explicit-any': 'warn',
       'no-use-before-define': 'error',
       'no-duplicate-imports': 'warn',
@@ -60,7 +69,7 @@ export default defineConfig({
     options: { typeAware: true, typeCheck: true },
   },
   staged: {
-    '*.{js,jsx,ts,tsx}': ['vp lint --fix --fix-suggestions', 'vp fmt'],
+    '*.{js,jsx,ts,tsx}': ['vp lint --fix', 'vp fmt'],
   },
   plugins: [react(), tailwindcss()],
   resolve: {

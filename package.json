@@ -8,7 +8,7 @@
     "build": "vp check --no-fmt --no-lint && vp build",
     "start": "vp preview",
     "lint": "vp lint",
-    "lint:fix": "vp lint --fix --fix-suggestions",
+    "lint:fix": "vp lint --fix",
     "format": "vp fmt",
     "check": "vp check",
     "prepare": "vp config --hooks --no-agent"
