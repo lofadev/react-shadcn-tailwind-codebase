@@ -2,7 +2,7 @@
 import { useCallback, useMemo } from 'react';
 
 import queryString from 'query-string';
-import { useLocation, useNavigate } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router';
 
 type arrayFormat = queryString.ParseOptions['arrayFormat'];
 

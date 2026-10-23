@@ -1,6 +1,6 @@
 import React, { PropsWithChildren, lazy, useMemo } from 'react';
 
-import { Navigate, RouteObject, useLocation } from 'react-router-dom';
+import { Navigate, RouteObject, useLocation } from 'react-router';
 import { useShallow } from 'zustand/shallow';
 
 import { LOCAL_STORAGE_KEY, ROUTE_PATH } from '@/constants';

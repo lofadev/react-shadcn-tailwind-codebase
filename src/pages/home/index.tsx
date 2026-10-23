@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom';
+import { Link } from 'react-router';
 
 import PageWrapper from '@/components/page-wrapper';
 import { Button } from '@/components/ui/button';

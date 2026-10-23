@@ -1,6 +1,6 @@
 import { PropsWithChildren } from 'react';
 
-import { useOutlet } from 'react-router-dom';
+import { useOutlet } from 'react-router';
 
 import Footer from '@/components/footer';
 import Header from '@/components/header';

@@ -1,4 +1,4 @@
-import { useOutlet } from 'react-router-dom';
+import { useOutlet } from 'react-router';
 
 import { ThemeControl } from '@/components/theme-control';
 

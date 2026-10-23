@@ -1,6 +1,6 @@
 import { useEffect, useMemo, useState } from 'react';
 
-import { useRoutes } from 'react-router-dom';
+import { useRoutes } from 'react-router';
 
 import LoadingIndicator from '@/components/loading-indicator';
 
