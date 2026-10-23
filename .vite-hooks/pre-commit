@@ -1,0 +1,2 @@
+vp staged
+vp check --no-fmt --no-lint

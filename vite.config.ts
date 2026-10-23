@@ -59,6 +59,9 @@ export default defineConfig({
     },
     options: { typeAware: true, typeCheck: true },
   },
+  staged: {
+    '*.{js,jsx,ts,tsx}': ['vp lint --fix --fix-suggestions', 'vp fmt'],
+  },
   plugins: [react(), tailwindcss()],
   resolve: {
     alias: {
