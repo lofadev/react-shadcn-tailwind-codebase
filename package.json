@@ -13,10 +13,10 @@
     "format": "prettier --write \"src/**/*.{js,jsx,ts,tsx}\"",
     "lint-staged": "lint-staged"
   },
-  "packageManager": "pnpm@10.33.0",
+  "packageManager": "pnpm@12.15.0",
   "engines": {
-    "node": "22.x",
-    "pnpm": "10.x"
+    "node": ">=24.11.0 <25",
+    "pnpm": "12.x"
   },
   "dependencies": {
     "@hookform/resolvers": "^4.1.3",
