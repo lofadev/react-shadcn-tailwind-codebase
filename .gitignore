@@ -28,3 +28,4 @@ package-lock.json
 .env
 .claude
 graphify-out
+docs
